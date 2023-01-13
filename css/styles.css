@@ -63,7 +63,7 @@ img {
   padding-bottom: 120px;
 }
 .container {
-  max-width: 1200px;
+  max-width: 1158px;
   margin-left: auto;
   margin-right: auto;
   padding-right: 15px;
@@ -83,12 +83,14 @@ img {
   color: var(--color-black);
   margin-right: 76px;
 }
+.logo-header {
+  display: block;
+  padding: 24px 0px;
+}
 .logo-accent {
   color: var(--color-primary-brand);
 }
 .header {
-  padding-top: 24px;
-  padding-bottom: 28px;
   border-bottom: 1px solid var(--color-light-grey);
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
@@ -113,10 +115,14 @@ img {
   font-weight: 500;
   line-height: 1.5;
   transition: color var(--transition-duration) var(--transition-timing-function);
-  position: relative;
 }
 .nav-list-item:last-child {
   margin-right: 0;
+}
+.nav-list-link {
+  display: block;
+  padding: 24px 0px;
+  position: relative;
 }
 
 .nav-list-link.current::after {
@@ -128,12 +134,11 @@ img {
   border-radius: 2px;
   position: absolute;
   left: 0;
-  bottom: -28px;
+  bottom: 0;
 }
 .contacts {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: block;
+  padding: 24px 0px;
   margin-right: 40px;
   line-height: 1.5;
   color: var(--color-grey);
@@ -149,7 +154,7 @@ img {
 .nav-list-item:focus-within,
 .contacts:hover,
 .contacts:focus,
-.current {
+.nav-list-link.current {
   color: var(--color-secondary-brand);
 }
 
@@ -219,14 +224,13 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 264px;
   height: 112px;
   background-color: var(--background-color-grey);
   border-radius: 4px;
   margin-bottom: 8px;
 }
 .benefits-list-item {
-  width: 264px;
+  width: calc((100%-72px) / 4);
   margin-right: 24px;
 }
 .benefits-list-item:last-child {
@@ -274,6 +278,7 @@ img {
   justify-content: center;
 }
 .team-list-item {
+  width: calc((100%-72px) / 4);
   background-color: var(--color-white);
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
@@ -330,20 +335,22 @@ img {
   justify-content: center;
   gap: 24px;
 }
+.clients-item {
+  width: calc((100%-120px) / 6);
+}
 .clients-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 168px;
   height: 88px;
-  border: 1px solid var(--color-icon);
+  border: 1px solid;
+  border-color: currentColor;
   border-radius: 4px;
   color: var(--color-icon);
   transition: color var(--transition-duration) var(--transition-timing-function);
 }
 .clients-link:hover,
 .clients-link:focus {
-  border: 1px solid currentColor;
   color: var(--color-secondary-brand);
 }
 .clients-icons {
@@ -428,7 +435,10 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
 }
-
+.email-input:focus {
+  border-color: var(--color-primary-brand);
+  outline: none;
+}
 .button-submit {
   display: flex;
   justify-content: center;
@@ -439,6 +449,10 @@ img {
   fill: var(--color-white);
 }
 /* Styles PORTFOLIO page */
+.portfolio {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
 .portfolio-filter {
   display: flex;
   justify-content: center;
@@ -448,7 +462,7 @@ img {
   margin-right: 8px;
 }
 .filter-button {
-  padding: 6px 22px;
+  padding: 12px 24px;
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
@@ -468,6 +482,7 @@ img {
 .filter-button:last-child {
   margin-right: 0;
 }
+.filter-button.current,
 .filter-button:hover,
 .filter-button:focus {
   color: var(--color-white);
@@ -476,14 +491,15 @@ img {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
+
 .portfolio-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: -15px;
+  margin: -24px -12px;
 }
 .portfolio-item {
-  margin: 15px;
+  margin: 24px 12px;
 }
 .portfolio-item:hover,
 .portfolio-item:focus {
@@ -520,7 +536,7 @@ img {
   line-height: 1.5;
   color: var(--background-color-grey);
 }
-.portfolio-item:hover .portfolio-cover-text {
+.portfolio-link:hover .portfolio-cover-text {
   position: absolute;
   transform: translateY(-100%);
 }
@@ -604,30 +620,30 @@ img {
   margin-bottom: 20px;
 }
 .input-wrap {
+  margin-top: 4px;
   position: relative;
 }
-
-.form-field label {
-  margin-bottom: 4px;
+.form-lable {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
-  color: var(--color-grey);
+  color: var(--color-icon);
 }
+
 .form-input,
 .form-textarea {
   width: 100%;
   padding-left: 42px;
   padding-top: 11px;
   padding-bottom: 11px;
-  font-size: 16px;
+  font-size: 12px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  cursor: pointer;
   transition: border-color var(--transition-duration)
     var(--transition-timing-function);
 }
 .form-textarea {
+  margin-top: 4px;
   resize: none;
   padding: 12px;
 }
